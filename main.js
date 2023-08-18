@@ -1,7 +1,9 @@
 let menuEmail = document.querySelector(".navbar-email");
-let desktopMenu = document.querySelector(".desktop-menu");
 let menuHamIcon = document.querySelector(".menu");
-let menuMobile = document.querySelector(".mobile-menu");
+let menuCarritoIcon = document.querySelector(".navbar-shopping-cart");
+let desktopMenu = document.querySelector(".desktop-menu");
+let mobileMenu = document.querySelector(".mobile-menu");
+let aside = document.querySelector(".product-detail");
 
 //Funcion del profe
 /* menuEmail.addEventListener("click", toggleDeskMenu);
@@ -11,9 +13,25 @@ function toggleDeskMenu() {
 } */
 
 //mi funcion mas corta
-menuEmail.addEventListener("click", ()=>{
+menuEmail.addEventListener("click", () => {
+    const isAsideClosed = aside.classList.contains("inactive")
+    if (!isAsideClosed) {
+        aside.classList.add("inactive");
+    }
     desktopMenu.classList.toggle("inactive");
-})
-menuHamIcon .addEventListener("click", ()=>{
-    menuMobile.classList.toggle("inactive");
-})
+});
+menuHamIcon.addEventListener("click", () => {
+    const isAsideClosed = aside.classList.contains("inactive")
+    if (!isAsideClosed) {
+        aside.classList.add("inactive");
+    }
+    mobileMenu.classList.toggle("inactive");
+});
+
+menuCarritoIcon.addEventListener("click", () => {
+    const isMobileMenuClosed = mobileMenu.classList.contains("inactive");
+    if (!isMobileMenuClosed) {
+        mobileMenu.classList.add("inactive");
+    }
+    aside.classList.toggle("inactive");
+});
